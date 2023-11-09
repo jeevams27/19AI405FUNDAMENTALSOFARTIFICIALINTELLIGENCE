@@ -1,6 +1,6 @@
 <h1>ExpNo 2 : Implement Breadth First Search Traversal of a Graph</h1> 
-<h3>Name: Saravanan N</h3>
-<h3>Register Number/Staff Id: TSML006</h3>
+<h3>Name: JEEVA MS</h3>
+<h3>Register Number: 2122212300</40h3>
 <H3>Aim:</H3>
 <p>To Implement Breadth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -64,30 +64,41 @@ Now, Queue becomes empty, So, terminate these process of iteration.
 <li>Find its Successors Or neighbors and Check whether the node is visited or not.</li>
 <li>If Not Visited, add it to the Queue. Else Continue.</li>
 <li>Iterate steps 4 and 5 until all nodes get visited, and there are no more unvisited nodes.</li>
-
 </ol>
+<h2> Program</h2>
 
-<hr>
-<h3>Sample Input</h3>
-<hr>
-7 9 <BR>
-A B <BR>
-A C <BR>
-A F <BR>
-C E <BR>
-C F <BR>
-C D <BR>
-D E <BR>
-D G <BR>
-G F <BR>
-<hr>
-<h3>Sample Output</h3>
-<hr>
-['A', 'B', 'C', 'F', 'E', 'D', 'G']
+```python
+from collections import defaultdict
+from collections import deque
+def bfs(graph,start,visited,path):
+    queue=deque()
+    path.append(start)
+    queue.append(start)
+    visited[start]=True
+    while len(queue)!=0:
+        tmpnode=queue.popleft()
+        for neighbour in graph[tmpnode]:
+            if visited[neighbour]==False:
+                path.append(neighbour)
+                queue.append(neighbour)
+                visited[neighbour]=True
+    return path
 
-<hr>
+graph=defaultdict(list)
+n,e=map(int,input().split())
+for i in range(e):
+    u,v=map(int,input().split())
+    graph[v].append(u)
+    graph[u].append(v)
+#print(graph)
+start=0
+visited=defaultdict(bool)
+path=[]
+traversedpath= bfs(graph,start,visited,path)
+print(traversedpath)
+```
 
-<hr>
+
 <h3>Sample Input</h3>
 <hr>
 5 6 <BR>
@@ -97,11 +108,9 @@ G F <BR>
 1 3 <BR>
 2 4 <BR>
 3 4 <BR>
-<hr>
-<h3>Sample Output</h3>
-<hr>
-['0', '1', '2', '3', '4']
-<hr>
+<h3>Output</h3>
+
+![Alt text](ot2.png)
 <h3>Result:</h3>
 <hr>
 <p>Thus,a Graph was constructed and implementation of Breadth First Search for the same graph was done successfully.</p>

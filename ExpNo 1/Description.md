@@ -1,6 +1,6 @@
 <h1>ExpNo 1 : Implement Depth First Search Traversal of a Graph</h1> 
 
-<h3> Name : Mothesh M D</h3>
+<h3> Name : Mothesh M </h3>
 <h3> Reg No: 212221230066</h3>
 
 <h2>Aim:</h2>
